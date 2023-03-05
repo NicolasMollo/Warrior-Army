@@ -2,16 +2,10 @@
 #define WARRIORARMY_GAME
 
 #include "Scene.h"
+#include "Warrior.h"
 #include <vector>
 
 // ~
-
-enum WarriorType {
-	Goblin,
-	Monster,
-	Knight,
-	Last
-};
 
 namespace Engine {
 
@@ -28,8 +22,8 @@ namespace Engine {
 		Game operator=(const Game& other) = delete;
 
 		//Scene CreateScene(const std::string _scenename);
-		GameObject CreateGameObject(const std::string _name);
-		std::vector<GameObject> CreateGameObjects(const int _number, const WarriorType _warriorType);
+		GameObject CreateGameObject(const std::string _name, const std::string _tag);
+		std::vector<GameObject> CreateGameObjects(const int _number, const WarriorArmy::WarriorType _warriorType);
 		void InitScene(Engine::Scene& _scene, const int numbofgo);
 		void GameLoop(Engine::Scene& _scene);
 	};

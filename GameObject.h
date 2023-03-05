@@ -16,18 +16,25 @@ namespace Engine {
 	class GameObject : public Lifecycle::IAwakeable, public Lifecycle::IEnable, public Lifecycle::IStartable,
 					   public Lifecycle::IUpdateable, public Lifecycle::IDisable, public Lifecycle::IDestroyable {
 
+	private:
+		bool firstTimeInGame = true;
+		bool lastDestroyedState = false;
+		bool itsDestroyed = false;
+
 	protected:
 		std::string name = "default_name";
 		std::string tag = "default_tag";
+		bool lastActivationState;
+		bool isActive;
 
 	public:
 
-		GameObject() = delete;
-		GameObject(const std::string _name);
-		GameObject(const std::string _name, const std::string _tag);
+		GameObject() = default;
+		GameObject(const std::string _name, const bool _isActive = true);
+		GameObject(const std::string _name, const std::string _tag, const bool _isActive = true);
 		GameObject(const GameObject& other);
 		GameObject& operator=(const GameObject& other);
-		~GameObject() = default;
+		~GameObject();
 
 		virtual void Awake() override;
 		virtual void OnEnable() override;
@@ -40,7 +47,16 @@ namespace Engine {
 		std::string& GetName();
 		const std::string& GetTag() const;
 		std::string& GetTag();
-
+		const bool& IsActive() const;
+		bool& IsActive();
+		const bool& LastActivationState() const;
+		bool& LastActivationState();
+		const bool& FirstTimeInGame() const;
+		bool& FirstTimeInGame();
+		const bool& ItsDestroyed() const;
+		bool& ItsDestroyed();
+		const bool& LastDestroyedState() const;
+		bool& LastDestroyedState();
 
 	};
 }

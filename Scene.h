@@ -43,6 +43,7 @@ namespace Engine {
 		void AddGameObject(GameObject& _object);
 		void RemoveGameObject(GameObject& _object);
 		void RemoveAllGameObjects();
+		//GameObject& FindObjectWithName(std::string _name);
 
 		const std::string& GetName() const;
 		std::string& GetName();

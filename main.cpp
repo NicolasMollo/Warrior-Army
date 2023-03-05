@@ -3,7 +3,6 @@
 #include "Scene.h"
 #include "GameObject.h"
 #include "Game.h"
-#include "StreamOverrides.h"
 
 
 int main(int argc, char** argv) {
@@ -43,9 +42,16 @@ int main(int argc, char** argv) {
 	//std::cout << scene.GetMyGameObjects() << std::endl;
 #pragma endregion
 
+	Engine::Scene scene("Game scene");	
 	Engine::Game game;
-	Engine::Scene scene("Game scene");
 	game.InitScene(scene, 10);
 	game.GameLoop(scene);
+
+#pragma region Test GameObject activeness
+	Engine::GameObject pippoFranco("Mohhhh", "Pinuccio", false);
+	scene.AddGameObject(pippoFranco);
+	std::cout << "ACTIVENESS: " << pippoFranco.IsActive() << std::endl;
+#pragma endregion
+
 
 }

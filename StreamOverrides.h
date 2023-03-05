@@ -16,4 +16,11 @@ std::ostream& operator<<(std::ostream& stream, const std::vector<Engine::GameObj
 	return stream;
 }
 
+
+//std::ostream& operator<<(std::ostream& stream, const WarriorArmy::WarriorType& _type) {
+//	stream << _type;
+//
+//	return stream;
+//}
+
 #endif // !WARRIORARMY_STREAMOVERRIDES
